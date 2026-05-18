@@ -1,0 +1,48 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: bigdata-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: bigdata123
+      MYSQL_DATABASE: bigdata_analytics
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+
+  spark-master:
+    image: bitnami/spark:3.5
+    container_name: bigdata-spark-master
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "7077:7077"
+      - "8080:8080"
+    volumes:
+      - ./:/workspace
+
+  spark-worker:
+    image: bitnami/spark:3.5
+    container_name: bigdata-spark-worker
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    depends_on:
+      - spark-master
+    volumes:
+      - ./:/workspace
+
+  analytics-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: bigdata-analytics-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
+

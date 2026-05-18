@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bigdata-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bigdata-mysql
+  template:
+    metadata:
+      labels:
+        app: bigdata-mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: bigdata123
+            - name: MYSQL_DATABASE
+              value: bigdata_analytics
+          ports:
+            - containerPort: 3306
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bigdata-mysql
+spec:
+  selector:
+    app: bigdata-mysql
+  ports:
+    - port: 3306
+      targetPort: 3306
+

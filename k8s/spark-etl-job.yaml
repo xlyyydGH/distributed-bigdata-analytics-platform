@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bigdata-spark-etl
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: spark-etl
+          image: bitnami/spark:3.5
+          command: ["/opt/bitnami/spark/bin/spark-submit"]
+          args:
+            - "--master"
+            - "local[*]"
+            - "/workspace/src/bigdata_platform/spark_etl.py"
+            - "--raw-dir"
+            - "/workspace/data/raw"
+            - "--output-dir"
+            - "/workspace/warehouse/spark_marts"
+          volumeMounts:
+            - name: workspace
+              mountPath: /workspace
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "2"
+              memory: "2Gi"
+      volumes:
+        - name: workspace
+          hostPath:
+            path: /workspace/distributed_bigdata_platform
+            type: Directory
+
