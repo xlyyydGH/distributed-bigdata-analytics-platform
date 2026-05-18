@@ -1,0 +1,45 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="760" fill="#F3F6FA"/>
+  <rect x="42" y="36" width="1196" height="688" rx="22" fill="#FFFFFF" stroke="#D9E2EC"/>
+  <text x="82" y="90" fill="#172033" font-family="Microsoft YaHei, Arial" font-size="30" font-weight="700">分布式大数据处理与分析平台</text>
+  <text x="82" y="124" fill="#667085" font-family="Microsoft YaHei, Arial" font-size="17">数据生成 -> Spark/Pandas 离线计算 -> 指标入库 -> FastAPI 查询 -> Dashboard 展示</text>
+
+  <g font-family="Microsoft YaHei, Arial">
+    <rect x="82" y="170" width="248" height="126" rx="18" fill="#F8FAFC" stroke="#D9E2EC"/>
+    <text x="110" y="208" fill="#667085" font-size="15">最新日期</text>
+    <text x="110" y="254" fill="#172033" font-size="32" font-weight="700">2024-01-30</text>
+    <rect x="356" y="170" width="248" height="126" rx="18" fill="#F8FAFC" stroke="#D9E2EC"/>
+    <text x="384" y="208" fill="#667085" font-size="15">DAU</text>
+    <text x="384" y="254" fill="#172033" font-size="32" font-weight="700">139</text>
+    <rect x="630" y="170" width="248" height="126" rx="18" fill="#F8FAFC" stroke="#D9E2EC"/>
+    <text x="658" y="208" fill="#667085" font-size="15">累计 GMV</text>
+    <text x="658" y="254" fill="#172033" font-size="32" font-weight="700">¥307,656</text>
+    <rect x="904" y="170" width="248" height="126" rx="18" fill="#F8FAFC" stroke="#D9E2EC"/>
+    <text x="932" y="208" fill="#667085" font-size="15">平均转化率</text>
+    <text x="932" y="254" fill="#172033" font-size="32" font-weight="700">26.89%</text>
+  </g>
+
+  <rect x="82" y="344" width="672" height="288" rx="18" fill="#FFFFFF" stroke="#D9E2EC"/>
+  <text x="112" y="386" fill="#172033" font-family="Microsoft YaHei, Arial" font-size="22" font-weight="700">日指标趋势</text>
+  <line x1="132" y1="574" x2="704" y2="574" stroke="#D0D5DD"/>
+  <line x1="132" y1="442" x2="132" y2="574" stroke="#D0D5DD"/>
+  <polyline points="142,548 212,516 282,530 352,486 422,468 492,438 562,454 632,412 696,430" fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="142,560 212,552 282,522 352,536 422,500 492,512 562,482 632,470 696,452" fill="none" stroke="#16A34A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="112" y="604" width="18" height="8" rx="4" fill="#2563EB"/>
+  <text x="140" y="613" fill="#667085" font-family="Microsoft YaHei, Arial" font-size="14">GMV</text>
+  <rect x="202" y="604" width="18" height="8" rx="4" fill="#16A34A"/>
+  <text x="230" y="613" fill="#667085" font-family="Microsoft YaHei, Arial" font-size="14">DAU</text>
+
+  <rect x="790" y="344" width="362" height="288" rx="18" fill="#F8FAFC" stroke="#D9E2EC"/>
+  <text x="820" y="386" fill="#172033" font-family="Microsoft YaHei, Arial" font-size="22" font-weight="700">核心链路</text>
+  <g font-family="Microsoft YaHei, Arial" font-size="16" font-weight="700">
+    <rect x="820" y="420" width="282" height="42" rx="12" fill="#E8F2FF"/>
+    <text x="846" y="447" fill="#175CD3">1. 生成用户/商品/行为日志</text>
+    <rect x="820" y="478" width="282" height="42" rx="12" fill="#EAFBF2"/>
+    <text x="846" y="505" fill="#027A48">2. Spark 离线聚合业务指标</text>
+    <rect x="820" y="536" width="282" height="42" rx="12" fill="#FFF7E6"/>
+    <text x="846" y="563" fill="#B54708">3. SQLite/MySQL 指标入库</text>
+    <rect x="820" y="594" width="282" height="42" rx="12" fill="#F4EBFF"/>
+    <text x="846" y="621" fill="#6941C6">4. FastAPI + Dashboard 展示</text>
+  </g>
+</svg>
